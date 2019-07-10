@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/datapemilih",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Datapemilih\\Providers\\DatapemilihServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Datapemilih\\": ""
+        }
+    }
+}
