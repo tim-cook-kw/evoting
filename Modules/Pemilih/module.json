@@ -1,0 +1,14 @@
+{
+    "name": "Pemilih",
+    "alias": "pemilih",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Pemilih\\Providers\\PemilihServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

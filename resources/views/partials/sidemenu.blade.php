@@ -39,6 +39,9 @@
         <ul class="treeview-menu">
           <li class="active"><a href="{{route('datapemilih.index')}}"><i class="fa fa-circle-o"></i>Data Calon</a></li>
         </ul>
+        <ul class="treeview-menu">
+          <li class="active"><a href="{{route('pemilih.index')}}"><i class="fa fa-circle-o"></i>Data Pemilih</a></li>
+        </ul>
       </li>
       <li class="treeview">
         <a href="#">
