@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Datapemilih\Entities\DataPemilihModel;
 use Illuminate\Support\Facades\DB;
+
 class DataPemilihApiController extends Controller
 {
     /**
@@ -39,10 +40,10 @@ class DataPemilihApiController extends Controller
         $datapemilihObject = new DataPemilihModel();
         $datapemilihObject->nama = $request->nama;
         $datapemilihObject->email = $request->email;
-        $datapemilihObject->jenis_kelamin = $request->jenis_keleamin;
+        $datapemilihObject->jenis_kelamin = $request->jenis_kelamin;
         $datapemilihObject->alamat = $request->alamat;
         $datapemilihObject->nomor_telepon = $request->nomor_telepon;
-        $datapemilihObject->foto = 'calongambar/'.$foto->getClientOriginalName();
+        $datapemilihObject->foto = 'calongambar/' . $foto->getClientOriginalName();
         $datapemilihObject->save();
         $path = $request->foto->storeAs('calongambar', $foto->getClientOriginalName());
     }
@@ -84,10 +85,10 @@ class DataPemilihApiController extends Controller
             $datapemilihObject->jenis_kelamin = $request->jenis_kelamin;
             $datapemilihObject->alamat = $request->alamat;
             $datapemilihObject->nomor_telepon = $request->nomor_telepon;
-            $datapemilihObject->foto = 'calongambar/'.$foto->getClientOriginalName();
+            $datapemilihObject->foto = 'calongambar/' . $foto->getClientOriginalName();
             $datapemilihObject->save();
             $path = $request->foto->storeAs('calongambar', $foto->getClientOriginalName());
-        }else{
+        } else {
             $datapemilihObject = DataPemilihModel::find($id);
             $datapemilihObject->nama = $request->nama;
             $datapemilihObject->email = $request->email;
