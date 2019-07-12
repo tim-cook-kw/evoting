@@ -40,6 +40,7 @@ class PemilihApiController extends Controller
         $pemilih->nik = $request->nik;
         $pemilih->nama = $request->nama;
         $pemilih->jenis_kelamin = $request->jenis_kelamin;
+        $pemilih->status_vote = $request->statusvote;
         $pemilih->save();
 
     }

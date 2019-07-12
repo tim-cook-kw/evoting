@@ -21,7 +21,7 @@
           <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
-        
+
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -33,6 +33,7 @@
                     <div class="form-group">
                             <label>NIK</label>
                             <input class="form-control" id="nik" name="nik">
+                            <input type="hidden" id="statusvote" value="0" name="statusvote">
                         </div>
                         <div class="form-group">
                             <label>Nama</label>
@@ -56,7 +57,7 @@
         </div>
         <div id="myModal1" class="modal fade" role="dialog">
             <div class="modal-dialog">
-        
+
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -144,7 +145,7 @@ function myfunc(id){
                 })
             }
         })
-          
+
 }
 var table =  $('#mytable').DataTable({
                 deferRender: true,
@@ -178,7 +179,11 @@ var table =  $('#mytable').DataTable({
 $('document').ready(function(){
     $('form[id="datacaloncreate"]').validate({
             rules: {
-                nik: 'required',
+                nik: {
+                    required : true,
+                    alphanumeric: true,
+                    minlength: 10
+                },
                 nama: 'required',
                 jenis_kelamin:'required',
             },
@@ -192,6 +197,7 @@ $('document').ready(function(){
                     data.append( 'nik', $( '#nik' ).val());
                     data.append( 'nama', $( '#nama' ).val());
                     data.append( 'jenis_kelamin', $( '#jenis_kelamin' ).val());
+                    data.append('statusvote', $('#statusvote').val());
                     $.ajax({
                         url:'/api/pemilih',
                         method:'POST',
