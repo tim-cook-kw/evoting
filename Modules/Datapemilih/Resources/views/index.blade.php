@@ -21,7 +21,7 @@
           <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
-        
+
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -57,6 +57,14 @@
                             <label>Alamat</label>
                             <textarea class="form-control" id="alamat" name="alamat"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label>Visi</label>
+                            <textarea class="form-control" id="visi" name="visi"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Misi</label>
+                            <textarea class="form-control" id="misi" name="misi"></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i> Simpan</button>
@@ -68,7 +76,7 @@
         </div>
         <div id="myModal1" class="modal fade" role="dialog">
             <div class="modal-dialog">
-        
+
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -171,7 +179,7 @@ function myfunc(id){
                 })
             }
         })
-          
+
 }
 var table =  $('#mytable').DataTable({
                 deferRender: true,
@@ -223,6 +231,8 @@ $('document').ready(function(){
                     number:true
                 },
                 alamat: 'required',
+                visi: 'required',
+                misi: 'required'
             },
             messages: {
                 judul: 'This field is required',
@@ -237,6 +247,8 @@ $('document').ready(function(){
                     data.append( 'nomor_telepon', $( '#nomor_telepon' ).val());
                     data.append( 'jenis_kelamin', $( '#jenis_kelamin' ).val());
                     data.append( 'alamat', $( '#alamat' ).val());
+                    data.append('visi', $('#visi').val());
+                    data.append('misi', $('#misi').val())
                     $.ajax({
                         url:'/api/datacalon',
                         method:'POST',
@@ -254,6 +266,8 @@ $('document').ready(function(){
                                     $( '#nomor_telepon' ).val('');
                                     $( '#jenis_kelamin' ).val('');
                                     $( '#alamat' ).val('');
+                                    $('#visi').val('');
+                                    $('#misi').val('');
                                     $('#myModal').modal('toggle');
                                 })
                                 table.ajax.reload();
