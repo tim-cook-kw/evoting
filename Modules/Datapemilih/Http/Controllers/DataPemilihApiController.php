@@ -44,6 +44,8 @@ class DataPemilihApiController extends Controller
         $datapemilihObject->alamat = $request->alamat;
         $datapemilihObject->nomor_telepon = $request->nomor_telepon;
         $datapemilihObject->foto = 'calongambar/' . $foto->getClientOriginalName();
+        $datapemilihObject->visi = $request->visi;
+        $datapemilihObject->misi = $request->misi;
         $datapemilihObject->save();
         $path = $request->foto->storeAs('calongambar', $foto->getClientOriginalName());
     }
