@@ -16,7 +16,7 @@ class HomeController extends Controller
         $pemilihp = PemilihModel::where('jenis_kelamin', 2)->count();
         $chart = Charts::create('pie', 'c3')->title('Presentasi Pemilih')
         ->labels(['Laki-Laki', 'Perempuan'])
-        ->values([$pemilihp, $pemilihl])->responsive(true);
+        ->values([$pemilihl, $pemilihp])->responsive(true);
         return view('welcome', compact('chart', 'pemilihl', 'pemilihp', 'pemilih', 'calon'));
     }
     public function vote(){

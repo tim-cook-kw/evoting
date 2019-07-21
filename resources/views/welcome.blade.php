@@ -141,7 +141,7 @@
 <section id="section1" class="section1">
 
     <div class="container text-center">
-        <h4 class="text-bold">Daftar Peserta Pemilu</h4>
+        <h4 class="text-bold">Daftar Calon</h4>
         <div class="row">
             @foreach ($calon as $item)
 
