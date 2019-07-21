@@ -5,6 +5,7 @@ namespace Modules\Dashboard\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -18,7 +19,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard::index');
+        $pemilih = DB::table('pemilih')->count();
+        $calon = DB::table('calon')->count();
+        $vote = DB::table('vote')->count();
+        return view('dashboard::index', compact('pemilih', 'calon', 'vote'));
     }
 
     /**

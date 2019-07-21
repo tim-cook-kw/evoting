@@ -1,5 +1,5 @@
  <!-- Logo -->
- <a href="index2.html" class="logo">
+ <a href="{{ route('home.index') }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>E</b>Voting</span>
     <!-- logo for regular state and mobile devices -->
@@ -224,31 +224,18 @@
 
               <p>
               {{ Auth::user()->name }}
-                <small>Member since Nov. 2012</small>
+
               </p>
             </li>
             <!-- Menu Body -->
-            <li class="user-body">
-              <div class="row">
-                <div class="col-xs-4 text-center">
-                  <a href="#">Followers</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Sales</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Friends</a>
-                </div>
-              </div>
-              <!-- /.row -->
-            </li>
+
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
-              <a class="dropdown-item" href="{{ route('logout') }}"
+              <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
