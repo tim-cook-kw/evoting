@@ -14,10 +14,17 @@ class HomeController extends Controller
         $calon = DB::table('calon')->get();
         $pemilihl = PemilihModel::where('jenis_kelamin', 1)->count();
         $pemilihp = PemilihModel::where('jenis_kelamin', 2)->count();
+        $calon1 = DB::table('vote')->where('id_calon', 1)->count();
+        $calon2 = DB::table('vote')->where('id_calon', 2)->count();
+        $nama1 = DB::table('calon')->where('id', 1)->first();
+        $nama2 = DB::table('calon')->where('id', 2)->first();
         $chart = Charts::create('pie', 'c3')->title('Presentasi Pemilih')
         ->labels(['Laki-Laki', 'Perempuan'])
-        ->values([$pemilihp, $pemilihl])->responsive(true);
-        return view('welcome', compact('chart', 'pemilihl', 'pemilihp', 'pemilih', 'calon'));
+        ->values([$pemilihl, $pemilihp])->responsive(true);
+        $vote = Charts::create('pie', 'c3')->title('')
+        ->labels([$nama1->nama, $nama2->nama])->values([$calon1, $calon2])->responsive(true);
+        $hasil = DB::table('vote')->count();
+        return view('welcome', compact('chart', 'pemilihl', 'pemilihp', 'pemilih', 'calon', 'vote', 'hasil'));
     }
     public function vote(){
 

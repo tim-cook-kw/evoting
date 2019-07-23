@@ -26,12 +26,9 @@
         scroll-behavior: smooth;
         }
 
-        .section1,
-        .section2,
-        .section3,
-        .section4,
-        .section5,
-        .section6 {
+        .calon,
+        .pemilih,
+        .hasil, {
         background-position: center center;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
@@ -40,21 +37,23 @@
         background-size: cover;
         }
 
-        .section1 {
+        .calon {
         background-color: #ECECEC;
         margin-top: 10px;
+        padding-bottom: 10px;
         }
 
-        .section2,
-        .section4,
-        .section6 {
+        .pemilih {
         background-color: #E1E1E1;
         margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
         }
 
-        .section3,
-        .section5 {
+        .hasil {
         background-color: #D1D1D1;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
         }
         .card-img-top {
         display: block;
@@ -117,15 +116,15 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#section1">Home
+                <a class="nav-link" href="#calon">Calon
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#section2">Pemilih</a>
+                <a class="nav-link" href="#pemilih">Pemilih</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Hasil Vote</a>
+                <a class="nav-link" href="#hasil">Hasil Vote</a>
             </li>
 
             <!-- Dropdown -->
@@ -138,14 +137,12 @@
 
 </nav>
 </header>
-<section id="section1" class="section1">
+<section id="calon" class="calon">
 
     <div class="container text-center">
-        <h4 class="text-bold">Daftar Peserta Pemilu</h4>
+        <h4 class="text-bold">Daftar Calon</h4>
         <div class="row">
             @foreach ($calon as $item)
-
-
             <div class="col-sm-12 col-md-8 col-lg-6 mt-12">
                 <div class="card">
                     <img class="card-img-top" src="{{ $item->foto }}">
@@ -159,7 +156,7 @@
                     <blockquote>"{{ $item->misi }}"</blockquote>
                 </div>
             </div>
-@endforeach
+            @endforeach
         </div>
     </div>
 
@@ -169,7 +166,7 @@
 
 <!-- Section 2 -->
 
-<section class="section2" id="section2">
+<section class="pemilih" id="pemilih">
     <div class="container">
         <h4 class="text-center">Pemilih</h4>
         {!! $chart->html() !!}
@@ -177,28 +174,33 @@
         <h5 class="text-center">Presentasi Laki-Laki / Perempuan:</h5>
         <h5 class="text-center">{{ $pemilihl}}/{{ $pemilihp }}</h5>
     </div>
-
 </section>
 
 <!-- Section 2 End -->
 
 <!-- Section 3 -->
 
-<section class="section3" id="section3">
+<section class="hasil" id="hasil">
+<div class="container">
+    <h4 class="text-center">Hasil Vote</h4>
+    {!! $vote->html() !!}
+    <p class="text-center lead">Jumlah Suara Masuk: {{ $hasil }}</p>
+</div>
+
 
 </section>
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-circle-up"></i></button>
 
 <!-- Section 3 End -->
 
-<!-- Section 4 -->
 
 
 
-{!! Charts::scripts() !!}
-{!! $chart->script() !!}
+
+
 </body>
 <script>
+
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
@@ -214,7 +216,15 @@
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
+    function autoRefreshPage()
+    {
+    window.location = window.location.href;
+    }
+    setInterval('autoRefreshPage()', 60000);
 </script>
+{!! Charts::scripts() !!}
+{!! $chart->script() !!}
+{!! $vote->script() !!}
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->

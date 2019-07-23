@@ -113,6 +113,14 @@
                             <label>Alamat</label>
                             <textarea class="form-control" id="alamatedit" name="alamatedit"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label>Visi</label>
+                            <textarea class="form-control" id="visiedit" name="visiedit"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Misi</label>
+                            <textarea class="form-control" id="misiedit" name="misiedit"></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i> Simpan</button>
@@ -150,6 +158,8 @@
                     $( '#nomor_teleponedit' ).val(data.nomor_telepon);
                     $( '#alamatedit' ).val(data.alamat);
                     $( '#jeniskelaminedit' ).val(data.jeniskelamin);
+                    $('#visiedit').val(data.visi);
+                    $('#misiedit').val(data.misi);
                     $( '#iddatacalon' ).val(data.id);
                 }
             })
@@ -248,7 +258,7 @@ $('document').ready(function(){
                     data.append( 'jenis_kelamin', $( '#jenis_kelamin' ).val());
                     data.append( 'alamat', $( '#alamat' ).val());
                     data.append('visi', $('#visi').val());
-                    data.append('misi', $('#misi').val())
+                    data.append('misi', $('#misi').val());
                     $.ajax({
                         url:'/api/datacalon',
                         method:'POST',
@@ -304,6 +314,8 @@ $('document').ready(function(){
                     data.append( 'nomor_telepon', $( '#nomor_teleponedit' ).val());
                     data.append( 'jenis_kelamin', $( '#jenis_kelaminedit' ).val());
                     data.append( 'alamat', $( '#alamatedit' ).val());
+                    data.append('visi', $('#visiedit').val());
+                    data.append('misi', $('#misiedit').val());
                     $.ajax({
                         url:'/api/datacalon/'+id,
                         method:'POST',
@@ -321,6 +333,8 @@ $('document').ready(function(){
                                     $( '#nomor_telepon' ).val('');
                                     $( '#jenis_kelamin' ).val('');
                                     $( '#alamat' ).val('');
+                                    $('#visi').val('');
+                                    $('#misi').val('');
                                     $('#myModal1').modal('toggle');
                                 })
                                 table.ajax.reload();
