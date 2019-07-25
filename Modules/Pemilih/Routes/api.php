@@ -17,3 +17,4 @@ Route::middleware('auth:api')->get('/pemilih', function (Request $request) {
     return $request->user();
 });
 Route::resource('pemilih','PemilihApiController');
+Route::post('validasi', 'PemilihApiController@validasi');

@@ -21,7 +21,7 @@ class HomeController extends Controller
         $chart = Charts::create('pie', 'c3')->title('Presentasi Pemilih')
         ->labels(['Laki-Laki', 'Perempuan'])
         ->values([$pemilihl, $pemilihp])->responsive(true);
-        $vote = Charts::create('pie', 'c3')->title('Presentasi Pemilih')
+        $vote = Charts::create('pie', 'c3')->title('')
             ->labels([$nama1->nama, $nama2->nama])
             ->values([$calon1, $calon2])->responsive(true);
         $hasil = DB::table('vote')->count();

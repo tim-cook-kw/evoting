@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Modules\Pemilih\Entities\PemilihModel;
+use Illuminate\Support\Facades\Validator;
 
 class PemilihApiController extends Controller
 {
@@ -34,14 +35,28 @@ class PemilihApiController extends Controller
      * @param Request $request
      * @return Response
      */
+    public function validasi(Request $request){
+        $cari = $request->get('query');
+
+            $data = PemilihModel::where('nik', 'like', '%' .  $cari . '%')->first();
+            if ($data) {
+                return $data;
+            } else { }
+
+
+    }
     public function store(Request $request)
     {
+
         $pemilih = new PemilihModel();
         $pemilih->nik = $request->nik;
         $pemilih->nama = $request->nama;
         $pemilih->jenis_kelamin = $request->jenis_kelamin;
         $pemilih->status_vote = $request->statusvote;
-        $pemilih->save(); 
+        $pemilih->save();
+
+
+
 
     }
 
@@ -74,11 +89,14 @@ class PemilihApiController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $pemilih = PemilihModel::find($id);
         $pemilih->nik = $request->nik;
         $pemilih->nama = $request->nama;
         $pemilih->jenis_kelamin = $request->jenis_kelamin;
         $pemilih->save();
+
+
     }
 
     /**

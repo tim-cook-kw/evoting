@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>E-Voting</title>
+    <title>E-Vote</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -28,7 +28,7 @@
 
         .calon,
         .pemilih,
-        .hasil, {
+        .hasil,.disclaimer, {
         background-position: center center;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
@@ -38,7 +38,7 @@
         }
 
         .calon {
-        background-color: #ECECEC;
+        background-color: #E1E1E1;
         margin-top: 10px;
         padding-bottom: 10px;
         }
@@ -49,9 +49,15 @@
         margin-bottom: 10px;
         padding-bottom: 10px;
         }
+        .disclaimer {
+        background-color: #E1E1E1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        }
 
         .hasil {
-        background-color: #D1D1D1;
+        background-color: #E1E1E1;
         margin-bottom: 10px;
         padding-bottom: 10px;
         }
@@ -97,7 +103,6 @@
 </head>
 <body>
 <!--Navbar-->
-<header class="">
 <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
     <!-- Navbar brand -->
@@ -136,62 +141,70 @@
     <!-- Collapsible content -->
 
 </nav>
-</header>
-<section id="calon" class="calon">
-
-    <div class="container text-center">
-        <h4 class="text-bold">Daftar Calon</h4>
-        <div class="row">
-            @foreach ($calon as $item)
-            <div class="col-sm-12 col-md-8 col-lg-6 mt-12">
-                <div class="card">
-                    <img class="card-img-top" src="{{ $item->foto }}">
-                    <div class="card-block primary-color">
-                        <h4 class="text-bold">{{ $item->nama }}</h4>
+<div class="container-fluid">
+    <section id="calon" class="calon">
+        <div class="container text-center">
+            <h4 class="text-bold">Daftar Calon</h4>
+            <div class="row">
+                @foreach ($calon as $item)
+                <div class="col-sm-12 col-md-8 col-lg-6 mt-12">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ $item->foto }}">
+                        <div class="card-block primary-color">
+                            <h4 class="text-bold">{{ $item->nama }}</h4>
+                        </div>
+                        <small class="lead">Visi :</small>
+                        <blockquote>"{{ $item->visi }}"</blockquote>
+                        <hr>
+                        <small class="lead">Misi :</small>
+                        <blockquote>"{{ $item->misi }}"</blockquote>
                     </div>
-                    <small class="lead">Visi :</small>
-                    <blockquote>"{{ $item->visi }}"</blockquote>
-                    <hr>
-                    <small class="lead">Misi :</small>
-                    <blockquote>"{{ $item->misi }}"</blockquote>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
-    </div>
-
-</section>
+    </section>
+</div>
 
 <!-- Section 1 End -->
 
 <!-- Section 2 -->
-
-<section class="pemilih" id="pemilih">
-    <div class="container">
-        <h4 class="text-center">Pemilih</h4>
-        {!! $chart->html() !!}
-        <p class="text-center lead">Jumlah Pemilih: {{ $pemilih }}</p>
-        <h5 class="text-center">Presentasi Laki-Laki / Perempuan:</h5>
-        <h5 class="text-center">{{ $pemilihl}}/{{ $pemilihp }}</h5>
-    </div>
-</section>
+<div class="container-fluid">
+    <section class="pemilih" id="pemilih">
+        <div class="container">
+            <h4 class="text-center">Pemilih</h4>
+            {!! $chart->html() !!}
+            <p class="text-center lead">Jumlah Pemilih: {{ $pemilih }}</p>
+            <h5 class="text-center">Presentasi Laki-Laki / Perempuan:</h5>
+            <h5 class="text-center">{{ $pemilihl}}/{{ $pemilihp }}</h5>
+        </div>
+    </section>
+</div>
 
 <!-- Section 2 End -->
 
 <!-- Section 3 -->
-
-<section class="hasil" id="hasil">
-<div class="container">
-    <h4 class="text-center">Hasil Vote</h4>
-    {!! $vote->html() !!}
-    <p class="text-center lead">Jumlah Suara Masuk: {{ $hasil }}</p>
+<div class="container-fluid">
+    <section class="hasil" id="hasil">
+        <div class="container">
+            <h4 class="text-center">Hasil Vote</h4>
+            {!! $vote->html() !!}
+            <p class="text-center lead">Jumlah Suara Masuk: {{ $hasil }}</p>
+        </div>
+    </section>
 </div>
-
-
-</section>
+<div class="container-fluid">
+    <section class="disclaimer" id="disclaimer">
+        <div class="container">
+            <h5 class="text-center"><strong>DISCLAIMER</strong></h5>
+            <ol>
+                <li>Situs Ini Hanya Menampilkan Informasi Tentang Calon, Pemilih, Dan Hasil Vote.</li>
+                <li>Kegiatan Voting Dilakukan Melalui Aplikasi Android.</li>
+            </ol>
+        </div>
+    </section>
+</div>
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-circle-up"></i></button>
-
-<!-- Section 3 End -->
 
 
 
@@ -220,7 +233,7 @@
     {
     window.location = window.location.href;
     }
-    setInterval('autoRefreshPage()', 60000);
+    setInterval('autoRefreshPage()', 300000);
 </script>
 {!! Charts::scripts() !!}
 {!! $chart->script() !!}
