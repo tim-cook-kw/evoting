@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jul 2019 pada 09.00
+-- Waktu pembuatan: 26 Jul 2019 pada 09.02
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -48,7 +48,7 @@ CREATE TABLE `calon` (
 
 INSERT INTO `calon` (`id`, `nama`, `email`, `alamat`, `foto`, `jenis_kelamin`, `nomor_telepon`, `visi`, `misi`, `created_at`, `updated_at`) VALUES
 (1, 'Audy', 'guru@guru.com', 'Cibitung', 'calongambar/boss.png', '1', '02102101012', 'Jadi Sejahtera', 'Adil Makmur', '2019-07-15 03:43:37', '2019-07-26 07:00:09'),
-(2, 'Panji', 'server.brebes@my.gavilan.edu', 'Tambun', 'calongambar/politics.png', '1', '02102101010', 'Maju', 'Terus', '2019-07-15 03:44:27', '2019-07-26 07:00:24');
+(2, 'Panji', 'server.brebes@my.gavilan.edu', 'Tambun', 'calongambar/boss.png', '1', '02102101010', 'Maju', 'Terus', '2019-07-15 03:44:27', '2019-07-26 07:00:24');
 
 -- --------------------------------------------------------
 
