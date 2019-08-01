@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jul 2019 pada 09.02
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 7.3.2
+-- Waktu pembuatan: 01 Agu 2019 pada 17.19
+-- Versi server: 10.3.16-MariaDB
+-- Versi PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -38,8 +38,8 @@ CREATE TABLE `calon` (
   `nomor_telepon` varchar(13) NOT NULL,
   `visi` text NOT NULL,
   `misi` text NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `calon` (
 
 INSERT INTO `calon` (`id`, `nama`, `email`, `alamat`, `foto`, `jenis_kelamin`, `nomor_telepon`, `visi`, `misi`, `created_at`, `updated_at`) VALUES
 (1, 'Audy', 'guru@guru.com', 'Cibitung', 'calongambar/boss.png', '1', '02102101012', 'Jadi Sejahtera', 'Adil Makmur', '2019-07-15 03:43:37', '2019-07-26 07:00:09'),
-(2, 'Panji', 'server.brebes@my.gavilan.edu', 'Tambun', 'calongambar/boss.png', '1', '02102101010', 'Maju', 'Terus', '2019-07-15 03:44:27', '2019-07-26 07:00:24');
+(2, 'Panji', 'server.brebes@my.gavilan.edu', 'Tambun', 'calongambar/boss.png', '1', '02102101010', 'Maju', 'Memajukan bangsa', '2019-07-15 03:44:27', '2019-07-30 05:49:06');
 
 -- --------------------------------------------------------
 
@@ -74,8 +74,8 @@ CREATE TABLE `pemilih` (
   `nama` varchar(50) NOT NULL,
   `jenis_kelamin` int(11) NOT NULL,
   `status_vote` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -129,8 +129,8 @@ CREATE TABLE `vote` (
   `id` int(11) NOT NULL,
   `id_calon` int(11) NOT NULL,
   `id_pemilih` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
