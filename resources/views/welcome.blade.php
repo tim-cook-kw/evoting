@@ -200,7 +200,7 @@
             <ol>
                 <li>Situs Ini Hanya Menampilkan Informasi Tentang Calon, Pemilih, Dan Hasil Vote.</li>
                 <li>Kegiatan Voting Dilakukan Melalui Aplikasi Android.</li>
-                <li>Untuk mendapatkan aplikasi Evoting klik <a href="https://drive.google.com/open?id=13l33SzB2s1iMd0GhMjvbfY9Ovcma_yZK" target="_blank">unduh</a></li>
+                <li>Untuk mendapatkan aplikasi Evoting klik <a href="https://drive.google.com/drive/folders/1YJ2_cqg5yMfo1x67GelrlX_MDqXDz_N5" target="_blank">unduh</a></li>
                 <li>Klik link berikut untuk ujicoba aplikasi <a href="https://pastebin.com/Tm4gHY71" target="_blank" >https://pastebin.com/Tm4gHY71</a></li>
             </ol>
         </div>
